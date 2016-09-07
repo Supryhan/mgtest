@@ -12,15 +12,14 @@ import ua.ch.mgtest.service.ContactService;
 
 @Controller
 public class MainController {
+
 	@Autowired
 	private ContactService contactService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView showAll() {
 		ModelAndView modelAndView = new ModelAndView("all");
-
 		modelAndView.addObject("contacts", contactService.getAll());
-
 		return modelAndView;
 	}
 
@@ -33,7 +32,6 @@ public class MainController {
 	public String addContact(@ModelAttribute("contact") Contact contact) {
 		if (contact.getId() == null) contactService.add(contact);
 		else contactService.update(contact);
-
 		return "redirect:/";
 	}
 
@@ -45,7 +43,6 @@ public class MainController {
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String deleteContact(@RequestParam(required = true) Long id) {
 		contactService.remove(id);
-
 		return "redirect:/";
 	}
 }
