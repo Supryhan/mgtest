@@ -10,8 +10,7 @@ public class Contact implements Serializable {
 	public static final String COLLECTION_NAME = "contacts";
 
 	@Id
-	private String id;
-//	private Long id;
+	private Long id;
 	/* *******************************************************
      Если вы хотите, чтобы ID объекта была автогенерируемая
      строка (об этом я писал в посте), то опишите поле ID так:
@@ -32,11 +31,11 @@ public class Contact implements Serializable {
 		this.email = email;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
