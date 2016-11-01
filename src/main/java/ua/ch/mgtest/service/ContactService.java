@@ -16,7 +16,7 @@ public class ContactService {
 	private ContactDao contactDao;
 
 	public void add(Contact contact) {
-//		contact.setId(sequenceDao.getNextSequenceId(Contact.COLLECTION_NAME));
+		contact.setId(sequenceDao.getNextSequenceId(Contact.COLLECTION_NAME));
 		contactDao.save(contact);
 	}
 
