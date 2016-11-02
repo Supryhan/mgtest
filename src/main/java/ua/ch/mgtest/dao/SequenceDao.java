@@ -16,7 +16,7 @@ public class SequenceDao {
 
 	public Long getNextSequenceId(String key) {
 		// получаем объект Sequence по наименованию коллекции
-		Query query = new Query(Criteria.where("_id").is(key));
+		Query query = new Query(Criteria.where("id").is(key));
 
 		// увеличиваем поле sequence на единицу
 		Update update = new Update();
