@@ -36,7 +36,7 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView showEditForm(@RequestParam(required = true) Long id) {
+	public ModelAndView showEditForm(@RequestParam(required = true) String id) {
 		return new ModelAndView("add_form", "contact", contactService.get(id));
 	}
 

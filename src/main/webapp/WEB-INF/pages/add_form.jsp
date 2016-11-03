@@ -6,8 +6,12 @@
 </head>
 <body>
 <form:form method="POST" action="/add" modelAttribute="contact">
-    <form:hidden path="id" />
+    <%--<form:hidden path="id" />--%>
     <table>
+        <tr>
+            <td>ID:</td>
+            <td><form:input path="id" /></td>
+        </tr>
         <tr>
             <td>Name:</td>
             <td><form:input path="name" /></td>

@@ -10,13 +10,13 @@ import java.util.List;
 
 @Service
 public class ContactService {
-	@Autowired
-	private SequenceDao sequenceDao;
+//	@Autowired
+//	private SequenceDao sequenceDao;
 	@Autowired
 	private ContactDao contactDao;
 
 	public void add(Contact contact) {
-		contact.setId(sequenceDao.getNextSequenceId(Contact.COLLECTION_NAME));
+//		contact.setId(sequenceDao.getNextSequenceId(Contact.COLLECTION_NAME));
 		contactDao.save(contact);
 	}
 
@@ -24,7 +24,7 @@ public class ContactService {
 		contactDao.save(contact);
 	}
 
-	public Contact get(Long id) {
+	public Contact get(String id) {
 		return contactDao.get(id);
 	}
 

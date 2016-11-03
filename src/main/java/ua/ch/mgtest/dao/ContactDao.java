@@ -18,8 +18,8 @@ public class ContactDao {
 		mongoOperations.save(contact);
 	}
 
-	public Contact get(Long id) {
-		return mongoOperations.findOne(Query.query(Criteria.where("id").is(id)), Contact.class);
+	public Contact get(String id) {
+		return mongoOperations.findOne(Query.query(Criteria.where("_id").is(id)), Contact.class);
 	}
 
 	public List<Contact> getAll() {
