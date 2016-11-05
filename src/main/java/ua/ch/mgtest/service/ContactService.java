@@ -21,6 +21,7 @@ public class ContactService {
 	@Transactional
 	public void add(Contact contact) {
 //		contact.setId(sequenceDao.getNextSequenceId(Contact.COLLECTION_NAME));
+		contact.setId(null);
 		contactDao.save(contact);
 	}
 

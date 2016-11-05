@@ -2,6 +2,7 @@ package ua.ch.mgtest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,8 +31,11 @@ public class MainController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addContact(@ModelAttribute("contact") Contact contact) {
-		if (contact.getId() == null) contactService.add(contact);
-		else contactService.update(contact);
+		if (StringUtils.isEmpty(contact.getId())) {
+			contactService.add(contact);
+		} else {
+			contactService.update(contact);
+		}
 		return "redirect:/";
 	}
 
