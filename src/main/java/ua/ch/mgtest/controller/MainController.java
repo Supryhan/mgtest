@@ -45,7 +45,7 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String deleteContact(@RequestParam(required = true) Long id) {
+	public String deleteContact(@RequestParam(required = true) String id) {
 		contactService.remove(id);
 		return "redirect:/";
 	}

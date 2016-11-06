@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Все контакты</title>
+    <title>Contacts</title>
 </head>
 <body>
 <table width="600px">
@@ -25,7 +25,7 @@
     </c:forEach>
     <tr>
         <td colspan="5">
-            <a href="/add">Добавить запись</a>
+            <a href="/add">Add record</a>
         </td>
     </tr>
 </table>

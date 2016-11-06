@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Добавить контакт</title>
+    <title>Add contact</title>
 </head>
 <body>
 <form:form method="POST" action="/add" modelAttribute="contact">

@@ -26,7 +26,7 @@ public class ContactDao {
 		return mongoOperations.findAll(Contact.class);
 	}
 
-	public void remove(Long id) {
-		mongoOperations.remove(Query.query(Criteria.where("id").is(id)), Contact.class);
+	public void remove(String id) {
+		mongoOperations.remove(Query.query(Criteria.where("_id").is(id)), Contact.class);
 	}
 }
