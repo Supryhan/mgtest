@@ -1,6 +1,7 @@
 package ua.ch.mgtest.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.ch.mgtest.dao.ContactDao;
@@ -9,6 +10,7 @@ import ua.ch.mgtest.service.ContactService;
 
 import java.util.List;
 
+@Async
 @Service
 public class ContactServiceImpl implements ContactService {
 
