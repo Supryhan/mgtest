@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.ch.mgtest.model.Contact;
 import ua.ch.mgtest.service.ContactService;
 
+import java.util.concurrent.ExecutionException;
+
 @Controller
 public class MainController {
 
@@ -20,7 +22,11 @@ public class MainController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView showAll() {
 		ModelAndView modelAndView = new ModelAndView("all");
-		modelAndView.addObject("contacts", contactService.getAll());
+		try {
+			modelAndView.addObject("contacts", contactService.getAll().get());
+		} catch (InterruptedException | ExecutionException e) {
+			System.err.print(e.getMessage());
+		}
 		return modelAndView;
 	}
 
@@ -41,7 +47,13 @@ public class MainController {
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView showEditForm(@RequestParam(required = true) String id) {
-		return new ModelAndView("add_form", "contact", contactService.get(id));
+		Object editItem = null;
+		try {
+			editItem = contactService.get(id).get();
+		} catch (InterruptedException | ExecutionException e) {
+			System.err.print(e.getMessage());
+		}
+		return new ModelAndView("add_form", "contact", editItem);
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)

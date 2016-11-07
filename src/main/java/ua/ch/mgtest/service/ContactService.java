@@ -3,6 +3,7 @@ package ua.ch.mgtest.service;
 import ua.ch.mgtest.model.Contact;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 public interface ContactService {
 
@@ -10,9 +11,9 @@ public interface ContactService {
 
 	void update(Contact contact);
 
-	Contact get(String id);
+	Future<Contact> get(String id);
 
-	List<Contact> getAll();
+	Future<List<Contact>> getAll();
 
 	void remove(String id);
 }

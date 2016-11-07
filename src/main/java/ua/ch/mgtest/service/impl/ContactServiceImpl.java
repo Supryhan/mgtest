@@ -2,6 +2,7 @@ package ua.ch.mgtest.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.ch.mgtest.dao.ContactDao;
@@ -9,6 +10,7 @@ import ua.ch.mgtest.model.Contact;
 import ua.ch.mgtest.service.ContactService;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 @Async
 @Service
@@ -36,14 +38,14 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	@Transactional
-	public Contact get(String id) {
-		return contactDao.get(id);
+	public Future<Contact> get(String id) {
+		return new AsyncResult<>(contactDao.get(id));
 	}
 
 	@Override
 	@Transactional
-	public List<Contact> getAll() {
-		return contactDao.getAll();
+	public Future<List<Contact>> getAll() {
+		return new AsyncResult<>(contactDao.getAll());
 	}
 
 	@Override
