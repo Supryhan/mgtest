@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 @Controller
 public class MainController {
 
-	@Autowired
+	@Autowired(required = true)
 	private ContactService contactService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
