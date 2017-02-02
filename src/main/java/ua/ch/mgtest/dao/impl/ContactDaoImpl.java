@@ -5,12 +5,14 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
+import ua.ch.mgtest.dao.ContactDao;
 import ua.ch.mgtest.model.Contact;
 
 import java.util.List;
 
 @Repository
-public class ContactDaoImpl {
+public class ContactDaoImpl implements ContactDao {
+
 	@Autowired
 	private MongoOperations mongoOperations;
 

@@ -3,12 +3,13 @@ package ua.ch.mgtest.dao.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Repository;
+import ua.ch.mgtest.dao.UriDao;
 import ua.ch.mgtest.model.Uri;
 
 import java.util.List;
 
 @Repository
-public class UriDaoImpl {
+public class UriDaoImpl implements UriDao {
 
     @Autowired
     private MongoOperations mongoOperations;
